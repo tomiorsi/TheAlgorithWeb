@@ -1,0 +1,461 @@
+:root{
+  --bg:#000; --fg:#fff; --muted:#bdbdbd; --grid:rgba(255,255,255,.06);
+  --maxw:1100px; --pad:28px; --radius:14px; --border:1px solid rgba(255,255,255,.16);
+  --header-h:70px; /* default header height */
+}
+*{box-sizing:border-box}
+html,body{margin:0; padding:0; background:var(--bg); color:var(--fg); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+a{color:var(--fg); text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width: var(--maxw); margin:0 auto; padding:0 var(--pad)}
+header{position:sticky; top:0; z-index:100; background:rgba(0,0,0,.82); backdrop-filter:saturate(140%) blur(6px); border-bottom:var(--border)}
+.nav{display:flex; align-items:center; justify-content:space-between; height:70px}
+.brand{display:flex; align-items:center; gap:12px}
+.brand-name{font-family:serif; font-weight:600; font-size:22px; letter-spacing:.3px}
+.logo{width:36px; height:36px}
+nav ul{display:flex; gap:22px; list-style:none; margin:0; padding:0}
+nav a{opacity:.9; font-weight:500}
+nav a.active{opacity:1; text-decoration:underline}
+.cta{border:1px solid #fff; padding:10px 14px; border-radius:999px; font-weight:600}
+.hero{
+  /* Fill full visible viewport height minus header; dvh fixes mobile URL bar issues */
+  min-height:calc(100vh - var(--header-h));
+  min-height:calc(100dvh - var(--header-h));
+  display:flex; align-items:center; position:relative
+}
+.grid-bg::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px), 
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridPulse 8s ease-in-out infinite;
+}
+
+.grid-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: transparent;
+  pointer-events: none;
+}
+
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.02); }
+}
+
+/* Financial Market Animation */
+.market-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  clip-path: inset(0 0 0 0);
+}
+
+@keyframes marketSnake {
+  0% {
+    opacity: 0;
+    stroke-dasharray: 0 1000;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+    stroke-dasharray: 1000 0;
+  }
+}
+h1{font-size: clamp(40px, 6vw, 84px); line-height:1.03; margin:0 0 10px; letter-spacing:.2px}
+h2{font-size: clamp(22px, 3.4vw, 40px); margin:0 0 10px}
+h3{font-size: clamp(14px, 2vw, 18px); letter-spacing:.14em; text-transform:uppercase; color:#cfcfcf; margin:0 0 8px}
+p{margin:0 0 14px; color:#e8e8e8}
+section{padding:80px 0}
+.small{font-size:14px; color:#bdbdbd}
+.grid-2{display:grid; grid-template-columns: 1.2fr 1fr; gap:22px}
+.card{padding:22px; border:var(--border); border-radius:var(--radius); background:rgba(255,255,255,.02)}
+.btn{display:inline-block; padding:12px 18px; border:1px solid #fff; border-radius:999px; font-weight:600}
+.btn:hover{background:#fff; color:#000; text-decoration:none}
+footer{padding:60px 0; border-top:var(--border); color:#b7b7b7}
+footer .links {
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  font-size:13px;
+}
+
+footer .links a {
+  font-size:13px;
+  line-height:1.2;
+}
+
+
+.hero-cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:20px}
+hr{border:0; border-top:1px solid rgba(255,255,255,.12); margin:40px 0}
+.list{display:grid; gap:10px}
+.mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+.meta{color:#bdbdbd; font-size:14px}
+.form{display:grid; gap:12px; max-width:580px}
+.input{padding:12px 14px; border-radius:12px; border:var(--border); background:#0c0c0c; color:#fff}
+.notice{font-size:13px; color:#bdbdbd}
+blockquote{border-left:2px solid #fff; padding-left:12px; color:#e5e5e5}
+/* MyFXBook Widget Styles */
+.myfxbook-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+}
+
+.myfxbook-header {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.myfxbook-header h4 {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.myfxbook-widget {
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.myfxbook-widget iframe {
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.myfxbook-footer {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.btn-small {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-small:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+}
+
+/* Mobile Hamburger Menu Styles */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+}
+
+/* turn hamburger into an X when menu is open */
+.mobile-menu.active ~ .mobile-menu-toggle,
+.mobile-menu-toggle.is-open{
+  position: relative;
+}
+.mobile-menu-toggle.is-open::before{
+  content:"×";
+  font-size:28px;
+}
+
+.mobile-menu-toggle:hover {
+  opacity: 0.8;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 70px; /* sit below header so logo/title remain visible */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 90; /* below header */
+  padding-top: 24px; /* increased padding to ensure menu items are fully visible */
+  transform: translateY(-100%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.mobile-menu.active {
+  display: block;
+  transform: translateY(0);
+}
+
+.mobile-menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+  margin: 0; /* full-bleed width */
+  padding: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  backdrop-filter: blur(20px);
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.mobile-menu a {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  padding: 16px 32px;
+  transition: all 0.2s ease;
+  text-align: center;
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  letter-spacing: 0.3px;
+}
+
+.mobile-menu li:first-child a {
+  padding-top: 20px; /* extra padding for first item to ensure it's fully visible */
+}
+
+.mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+.mobile-menu a:hover {
+  background: rgba(255, 255, 255, 0.05);
+  text-decoration: none;
+  color: #fff;
+}
+
+.mobile-menu a.active {
+  background: none;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  position: relative;
+}
+
+.mobile-menu a.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 20px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.mobile-menu .cta {
+  border: none;
+  padding: 16px 32px;
+  border-radius: 0;
+  font-weight: 500;
+  font-size: 16px;
+  background: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 8px;
+  text-decoration: underline;
+}
+
+.mobile-menu .cta:hover {
+  background: rgba(255, 255, 255, 0.05);
+  text-decoration: underline;
+  color: #fff;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  :root{ --header-h:60px; }
+  .mobile-menu-toggle {
+    display: block;
+  }
+  /* account for shorter header on mobile */
+  .mobile-menu{ 
+    top: 60px; 
+    padding-top: 20px; /* ensure proper spacing on mobile */
+  }
+  
+  nav {
+    display: none;
+  }
+  
+  .nav {
+    height: 60px;
+  }
+  
+  .brand-name {
+    font-size: 18px;
+  }
+  
+  .logo {
+    width: 30px;
+    height: 30px;
+  }
+  
+  h1 {
+    /* make the hero title more prominent on phones/tablets */
+    font-size: clamp(32px, 10vw, 56px);
+  }
+  
+  h2 {
+    font-size: clamp(20px, 5vw, 32px);
+  }
+  
+  section {
+    padding: 40px 0;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+  
+  .hero {
+    /* hero fills viewport minus header on mobile; dvh avoids iOS/Android URL bar shrinking */
+    min-height: calc(100vh - var(--header-h));
+    min-height: calc(100dvh - var(--header-h));
+  }
+
+  /* make supporting copy clearly smaller than the title */
+  .meta {
+    font-size: 12px;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .form {
+    max-width: 100%;
+  }
+  
+  .input, .btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .kpis {
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .kpi {
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .charts-flex {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .chart-card {
+    max-width: 100% !important;
+    flex: none !important;
+  }
+  
+  .myfxbook-widget iframe {
+    height: 300px;
+  }
+}
+
+@media (max-width: 960px){
+  .grid-2{grid-template-columns:1fr}
+  .nav{height:64px}
+  .myfxbook-widget iframe {
+    height: 350px;
+  }
+}
+
+@media (max-width: 640px){
+  .myfxbook-widget iframe {
+    height: 300px;
+  }
+  
+  .kpis {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .kpi {
+    font-size: 16px;
+  }
+  
+  .chart-card {
+    padding: 16px;
+  }
+  
+  .myfxbook-widget iframe {
+    height: 250px;
+  }
+  
+  .grid-2 {
+    gap: 16px;
+  }
+  
+  .card {
+    padding: 16px;
+  }
+  
+  .hero {
+    min-height: calc(100vh - var(--header-h));
+    min-height: calc(100dvh - var(--header-h));
+  }
+
+  .meta {
+    font-size: 12px;
+  }
+  
+  .container {
+    padding: 0 16px;
+  }
+  
+  .form {
+    gap: 16px;
+  }
+  
+  .input, .btn {
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+}

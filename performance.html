@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Performance — The Algorithm</title>
+  <meta name="description" content="Estrategias cuantitativas multi-activo con riesgo controlado y auditoría independiente.">
+
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .kpis {
+      display:flex;
+      gap:40px;
+      justify-content:flex-start;
+      flex-wrap:wrap;
+      margin:24px 0 36px;
+    }
+    .kpi {
+      font-size:22px;
+      font-weight:600;
+    }
+    .kpi span {
+      font-size:14px;
+      opacity:.75;
+      display:block;
+      font-weight:400;
+      margin-top:4px;
+    }
+    .charts-flex {
+      display:flex;
+      gap:40px;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .chart-card {
+      border: var(--border);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.03);
+      padding: 22px;
+      text-align: center;
+    }
+    .chart-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+    .audit-link {
+      display:block;
+      margin-top:10px;
+      font-size:13px;
+      text-decoration:underline;
+      opacity:.85;
+    }
+    .audit-link:hover {
+      opacity:1;
+    }
+    
+    .performance-title {
+      line-height: 1.2;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    
+    .desktop-version {
+      display: block;
+    }
+    
+    .mobile-version {
+      display: none;
+    }
+    
+    @media (max-width: 768px) {
+      .performance-title {
+        font-size: clamp(20px, 5vw, 28px);
+        line-height: 1.3;
+        margin-bottom: 24px;
+        text-align: center;
+      }
+      
+      .desktop-version {
+        display: none;
+      }
+      
+      .mobile-version {
+        display: block;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .performance-title {
+        font-size: clamp(18px, 6vw, 24px);
+        line-height: 1.4;
+        margin-bottom: 28px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 100 100"><path fill="#fff" d="M15 82h18L62 18h-18zM56 82h29l-12-26h-18z"/></svg>
+      <span class="brand-name">The Algorithm</span>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Abrir menú">
+      ☰
+    </button>
+    
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a class="active" href="performance.html">Rendimiento y Estrategia</a></li>
+        <li><a href="risk.html">Riesgo y Tecnología</a></li>
+        <li><a class="cta" href="contact.html">Solicitar Acceso</a></li>
+      </ul>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a class="active" href="performance.html">Rendimiento y Estrategia</a></li>
+        <li><a href="risk.html">Riesgo y Tecnología</a></li>
+        <li><a class="cta" href="contact.html">Solicitar Acceso</a></li>
+      </ul>
+    </div>
+    
+  </div>
+</header>
+
+
+<section class="container">
+  <h3></h3>
+  <br>
+  <h2 class="performance-title">
+    <span class="desktop-version">Capital diversificado. Riesgo controlado.<br>Resultados auditados.</span>
+    <span class="mobile-version">Capital diversificado.<br>Riesgo controlado.<br>Resultados auditados.</span>
+  </h2>
+
+  <div class="kpis">
+    <div class="kpi">
+      25%
+      <span>Ganancia anual promedio</span>
+    </div>
+    <div class="kpi">
+      12.14%
+      <span>Máx. Drawdown</span>
+    </div>
+    <div class="kpi">
+      +7 años
+      <span>Backtesting 2018–2025</span>
+    </div>
+    <div class="kpi">
+      +1 año
+      <span>Cuenta real auditada</span>
+    </div>
+  </div>
+
+
+
+  <hr style="margin: 20px 0;"/>
+
+  <div class="charts-flex">
+    
+    <!-- Gráfico principal -->
+    <div class="chart-card" style="flex:1 1 600px; max-width:750px;">
+      <h3>Balance Combinado vs Drawdown</h3>
+      <p class="small">Portafolio agregado | 2018–2025</p>
+      <img src="balance_combinado.png" alt="Curva de balance combinado y riesgo histórico">
+    </div>
+
+    <!-- Widget Myfxbook DARK -->
+    <div class="chart-card" style="flex:1 1 260px; max-width:300px; padding:14px;">
+      <h3>Auditoría Externa</h3>
+      <p class="small">Cuenta real auditada</p>
+
+      <a href="https://www.myfxbook.com/members/TheAlgorithmPro/algorithm/11772725" target="_blank">
+        <img alt="widget"
+        src="https://widgets.myfxbook.com/custom-widget?id=11772725&width=300&height=350&bart=0&linet=0&symbol=EURGBP&magic=-1&title=&titles=15&bgColor=000000&gridColor=ffffff&lineColor=ffe600&barColor=ffadad&bar1Color=ffadad&fontColor=ffffff&chartbgc=000000&equityColor=a8b007"
+        style="width:100%; max-width:300px; border-radius:8px;"
+        />
+      </a>
+
+      <a class="audit-link" target="_blank" href="https://www.myfxbook.com/portfolio/algorithm/11772725">
+        Ver auditoría completa en Myfxbook
+      </a>
+    </div>
+
+  </div>
+
+  <br>
+
+
+</section>
+
+
+<footer>
+  <div class="container" style="display:flex; flex-direction:column; gap:10px">
+    <div style="display:flex; align-items:center; gap:12px">
+      <svg class="logo" viewBox="0 0 100 100"><path fill="#fff" d="M15 82h18L62 18h-18zM56 82h29l-12-26h-18z"/></svg>
+      <strong>The Algorithm</strong>
+    </div>
+    <small>© <span data-year></span> The Algorithm. Quantitative Trading Technologies.</small>
+    <div class="links" style="font-size:8px">
+      <a href="disclosure.html">Disclosure de riesgos</a>
+      <a href="privacy.html">Política de privacidad</a>
+      <a href="contact.html">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
